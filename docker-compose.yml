@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: aquawatch_db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: aquawatch
+      POSTGRES_USER: aquawatch
+      POSTGRES_PASSWORD: aquawatch_dev
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aquawatch"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

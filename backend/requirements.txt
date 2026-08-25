@@ -1,0 +1,19 @@
+# Web framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Database
+sqlalchemy==2.0.23
+geoalchemy2==0.14.2
+psycopg2-binary==2.9.9
+alembic==1.13.0
+
+# Image processing
+opencv-python==4.8.1.78
+numpy==1.26.2
+
+# Utilities
+python-dotenv==1.0.0
+pydantic[email]==2.5.2
+pydantic-settings==2.1.0

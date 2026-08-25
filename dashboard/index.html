@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaWatch - Water Body Health Monitor</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">AquaWatch</h1>
+            <span class="tagline">Water Body Health Monitor</span>
+        </div>
+        <div class="header-right">
+            <span class="stats" id="stats-text">Loading...</span>
+            <button class="btn-refresh" id="btn-refresh">Refresh</button>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="map-container" id="map"></div>
+        <aside class="detail-panel" id="detail-panel">
+            <button class="panel-close" id="panel-close">&times;</button>
+            <div class="panel-header">
+                <h2 class="panel-title" id="panel-title">--</h2>
+                <span class="risk-badge" id="panel-risk-badge">--</span>
+            </div>
+            <div class="panel-score">
+                <span class="score-label">Risk Score</span>
+                <span class="score-value" id="panel-score">--</span>
+                <span class="score-max">/ 100</span>
+            </div>
+            <div class="panel-section">
+                <h3>Analysis Breakdown</h3>
+                <div class="breakdown" id="panel-breakdown"></div>
+            </div>
+            <div class="panel-section">
+                <h3>Recent Reports</h3>
+                <ul class="reports-list" id="panel-reports"></ul>
+            </div>
+            <div class="panel-meta" id="panel-meta"></div>
+        </aside>
+    </main>
+    <footer class="footer">
+        <span id="footer-count">-- water bodies monitored</span>
+        <span id="footer-updated">Last updated: --</span>
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+env/
+.venv/
+
+# Environment
+.env
+*.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+pgdata/
+
+# Docker
+docker-compose.override.yml
+
+# ML/Data
+ml/data/
+ml/models/*.tflite
+*.h5
+
+# YOLO model weights (large binary files)
+*.pt
+backend/runs/
+
+# Datasets (too large for git)
+backend/datasets/train/
+backend/datasets/valid/
+backend/datasets/test/
+backend/waterpollution/
+
+# Logs
+*.log
+
+# Test images
+backend/test_images/
+
+# Flutter
+mobile/.dart_tool/
+mobile/build/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/android/.gradle/
+mobile/android/app/build/
+
+# Dart/Flutter project-level
+.dart_tool/
+.metadata
+*.iml
+.idea/
+
+# Android
+android/.gradle/
+android/app/build/
+android/local.properties
+mobile/android/.gradle/
+mobile/android/local.properties
+
+# Gradle
+.gradle/
