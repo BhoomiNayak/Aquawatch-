@@ -7,10 +7,10 @@ class ApiService {
   // Change this to your machine's local IP for physical device testing
   // For Android emulator use: http://10.0.2.2:8001/api/v1
   // For physical device use: http://<YOUR_LOCAL_IP>:8001/api/v1
-  static const String baseUrl = 'http://10.0.2.2:8001/api/v1';
+  static const String baseUrl = 'http://192.168.0.108:8002/api/v1';
 
   // Timeout duration
-  static const Duration timeout = Duration(seconds: 30);
+  static const Duration timeout = Duration(seconds: 60);
 
   // Max retries
   static const int maxRetries = 2;
@@ -104,6 +104,17 @@ class ApiService {
 
     // All retries failed
     throw lastError ?? Exception('Upload failed after $maxRetries retries.');
+  }
+
+  /// Fetch a single report by id, including the async `satellite_verdict`.
+  /// Used to poll for the background satellite enrichment result.
+  static Future<Map<String, dynamic>> getReport(String reportId) async {
+    final uri = Uri.parse('$baseUrl/reports/$reportId');
+    final response = await http.get(uri).timeout(const Duration(seconds: 20));
+    if (response.statusCode == 200) {
+      return json.decode(response.body) as Map<String, dynamic>;
+    }
+    throw Exception('Failed to fetch report (${response.statusCode})');
   }
 
   /// Check if the backend is reachable.

@@ -15,6 +15,14 @@ env/
 .env
 *.env.local
 
+# Secrets / credentials — NEVER commit these
+backend/keys/
+*_service_account.json
+*-service-account*.json
+service-account*.json
+*.pem
+*.p12
+
 # IDE
 .vscode/
 .idea/
@@ -75,3 +83,19 @@ mobile/android/local.properties
 
 # Gradle
 .gradle/
+
+# Large datasets & generated artifacts (do NOT commit — size + image licensing)
+backend/datasets/EyeOnWater_Dataset/
+backend/datasets/local_benchmark/images/
+backend/datasets/try_dataset/
+backend/datasets/IndianWaterDataset/dataset_indian_raw/
+backend/datasets/IndianWaterDataset/indian_test_set_200/
+backend/datasets/IndianWaterDataset/clean_water_pollution_dataset/
+backend/datasets/IndianWaterDataset/global_water_pollution/
+backend/datasets/IndianWaterDataset/commons_licensed/
+backend/datasets/IndianWaterDataset/commons_licensed_probe/
+backend/models/
+backend/reports/
+backend/eyeonwater_phash_clusters.csv
+backend/eyeonwater_split_train.csv
+backend/eyeonwater_split_val.csv

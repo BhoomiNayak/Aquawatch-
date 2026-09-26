@@ -17,3 +17,10 @@ numpy==1.26.2
 python-dotenv==1.0.0
 pydantic[email]==2.5.2
 pydantic-settings==2.1.0
+
+# Satellite corroboration layer (offline scripts only — the runtime
+# satellite.py service reads a cached CSV and needs no extra deps).
+# Used by scripts/sentinel_ndci_timeseries.py
+earthengine-api>=0.1.380
+pandas==2.1.4
+matplotlib==3.8.2

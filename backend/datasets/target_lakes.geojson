@@ -1,0 +1,146 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "description": "Target water bodies for the AquaWatch Sentinel-2 corroboration layer.",
+    "note": "Polygons are APPROXIMATE bounding shapes drawn around each water surface. Refine them in https://geojson.io for tighter fits before publication. Coordinates are [lon, lat], WGS84 (EPSG:4326).",
+    "categories": {
+      "polluted": "Known chronically-polluted / eutrophic urban lakes",
+      "moderate": "Intermediate urban lake",
+      "clean_reference": "Control water bodies expected to have low chlorophyll / low NDCI"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bellandur Lake",
+        "category": "polluted",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "approx": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.655, 12.925],
+            [77.682, 12.925],
+            [77.682, 12.945],
+            [77.655, 12.945],
+            [77.655, 12.925]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Varthur Lake",
+        "category": "polluted",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "approx": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.730, 12.933],
+            [77.752, 12.933],
+            [77.752, 12.948],
+            [77.730, 12.948],
+            [77.730, 12.933]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hussain Sagar",
+        "category": "polluted",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "approx": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [78.465, 17.415],
+            [78.482, 17.415],
+            [78.482, 17.435],
+            [78.465, 17.435],
+            [78.465, 17.415]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ulsoor Lake",
+        "category": "moderate",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "approx": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.615, 12.976],
+            [77.626, 12.976],
+            [77.626, 12.986],
+            [77.615, 12.986],
+            [77.615, 12.976]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hesaraghatta Reservoir",
+        "category": "clean_reference",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "approx": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.465, 13.130],
+            [77.495, 13.130],
+            [77.495, 13.152],
+            [77.465, 13.152],
+            [77.465, 13.130]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pangong Lake",
+        "category": "clean_reference",
+        "city": "Leh",
+        "state": "Ladakh",
+        "approx": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [78.550, 33.780],
+            [78.660, 33.780],
+            [78.660, 33.840],
+            [78.550, 33.840],
+            [78.550, 33.780]
+          ]
+        ]
+      }
+    }
+  ]
+}

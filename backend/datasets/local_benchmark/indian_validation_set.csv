@@ -1,0 +1,201 @@
+image_id,water_body_name,location_city,annotator_1,annotator_2,annotator_3,consensus_label
+IND_001.jpg,Vrishabhavathi River,Bengaluru,1,1,1,1
+IND_002.jpg,Wular Lake,Srinagar,1,1,1,1
+IND_003.jpg,Adyar River,Chennai,2,2,1,2
+IND_004.jpg,Unknown Lake,Karnataka,2,2,2,2
+IND_005.jpg,Yamuna River,Delhi,0,0,0,0
+IND_006.jpg,Backwaters,Kerala,2,2,2,2
+IND_007.jpg,Musi River,Hyderabad,2,2,2,2
+IND_008.jpg,Kaveri River,Srirangapatna,2,2,2,2
+IND_009.jpg,Wular Lake,Srinagar,2,2,1,2
+IND_010.jpg,Hooghly River,Kolkata,2,2,2,2
+IND_011.jpg,Sambhar Lake,Rajasthan,2,2,2,2
+IND_012.jpg,Gomti River,Lucknow,2,2,2,2
+IND_013.jpg,Mula-Mutha River,Pune,0,0,0,0
+IND_014.jpg,Bhojtal,Bhopal,1,1,2,1
+IND_015.jpg,Canal,Punjab,0,0,0,0
+IND_016.jpg,Drain,Delhi,0,0,0,0
+IND_017.jpg,Ropar Wetland,Punjab,2,2,2,2
+IND_018.jpg,Dal Lake,Srinagar,0,0,0,0
+IND_019.jpg,Kaveri River,Srirangapatna,1,1,0,1
+IND_020.jpg,Kaveri River,Srirangapatna,2,2,2,2
+IND_021.jpg,Pushkar Lake,Ajmer,1,1,1,1
+IND_022.jpg,Ropar Wetland,Punjab,1,1,1,1
+IND_023.jpg,Dal Lake,Srinagar,1,1,1,1
+IND_024.jpg,Brahmaputra River,Guwahati,0,0,0,0
+IND_025.jpg,Drain,Delhi,0,0,0,0
+IND_026.jpg,Ganga River,Varanasi,0,0,0,0
+IND_027.jpg,Loktak Lake,Imphal,1,1,1,1
+IND_028.jpg,Unknown River,Maharashtra,2,2,2,2
+IND_029.jpg,Gomti River,Lucknow,1,1,1,1
+IND_030.jpg,Pushkar Lake,Ajmer,0,0,0,0
+IND_031.jpg,Drain,Delhi,1,1,2,1
+IND_032.jpg,Unknown Lake,Karnataka,1,1,1,1
+IND_033.jpg,Adyar River,Chennai,1,1,1,1
+IND_034.jpg,Ganga River,Varanasi,2,2,2,2
+IND_035.jpg,Hooghly River,Kolkata,2,2,2,2
+IND_036.jpg,Dal Lake,Srinagar,1,1,1,1
+IND_037.jpg,Pushkar Lake,Ajmer,1,0,0,0
+IND_038.jpg,Vrishabhavathi River,Bengaluru,1,1,1,1
+IND_039.jpg,Wular Lake,Srinagar,2,2,2,2
+IND_040.jpg,Pichola Lake,Udaipur,1,1,1,1
+IND_041.jpg,Chilika Lake,Odisha,2,2,1,2
+IND_042.jpg,Nainital Lake,Nainital,2,2,2,2
+IND_043.jpg,Musi River,Hyderabad,0,0,0,0
+IND_044.jpg,Hooghly River,Kolkata,1,1,0,1
+IND_045.jpg,Backwaters,Kerala,1,1,1,1
+IND_046.jpg,Ropar Wetland,Punjab,0,0,1,0
+IND_047.jpg,Brahmaputra River,Guwahati,0,0,0,0
+IND_048.jpg,Cooum River,Chennai,2,2,1,2
+IND_049.jpg,Adyar River,Chennai,1,0,0,0
+IND_050.jpg,Chilika Lake,Odisha,1,1,1,1
+IND_051.jpg,Gomti River,Lucknow,0,0,0,0
+IND_052.jpg,Nainital Lake,Nainital,0,0,0,0
+IND_053.jpg,Ropar Wetland,Punjab,0,0,0,0
+IND_054.jpg,Stepwell,Rajasthan,1,1,1,1
+IND_055.jpg,Dal Lake,Srinagar,1,1,1,1
+IND_056.jpg,Kaveri River,Srirangapatna,1,1,1,1
+IND_057.jpg,Ganga River,Varanasi,0,1,1,1
+IND_058.jpg,Dal Lake,Srinagar,2,2,2,2
+IND_059.jpg,Wular Lake,Srinagar,2,2,2,2
+IND_060.jpg,Gomti River,Lucknow,2,2,2,2
+IND_061.jpg,Unknown River,Maharashtra,2,2,2,2
+IND_062.jpg,Brahmaputra River,Guwahati,2,2,2,2
+IND_063.jpg,Musi River,Hyderabad,2,2,2,2
+IND_064.jpg,Upper Lake,Bhopal,1,1,1,1
+IND_065.jpg,Ganga River,Varanasi,1,0,0,0
+IND_066.jpg,Ganga River,Varanasi,1,1,1,1
+IND_067.jpg,Mula-Mutha River,Pune,0,0,0,0
+IND_068.jpg,Musi River,Hyderabad,1,1,1,1
+IND_069.jpg,Sabarmati River,Ahmedabad,0,0,0,0
+IND_070.jpg,Dal Lake,Srinagar,1,1,0,1
+IND_071.jpg,Ganga River,Varanasi,1,1,1,1
+IND_072.jpg,Bellandur Lake,Bengaluru,2,1,1,1
+IND_073.jpg,Hooghly River,Kolkata,1,1,1,1
+IND_074.jpg,Tso Moriri,Ladakh,2,2,2,2
+IND_075.jpg,Bellandur Lake,Bengaluru,2,2,2,2
+IND_076.jpg,Pushkar Lake,Ajmer,0,0,0,0
+IND_077.jpg,Drain,Delhi,1,1,1,1
+IND_078.jpg,Musi River,Hyderabad,0,0,0,0
+IND_079.jpg,Ganga River,Varanasi,0,0,0,0
+IND_080.jpg,Canal,Punjab,0,0,0,0
+IND_081.jpg,Loktak Lake,Imphal,0,0,0,0
+IND_082.jpg,Temple Tank,Tamil Nadu,1,0,0,0
+IND_083.jpg,Ganga River,Varanasi,2,2,2,2
+IND_084.jpg,Sabarmati River,Ahmedabad,0,0,0,0
+IND_085.jpg,Brahmaputra River,Guwahati,1,0,0,0
+IND_086.jpg,Unknown Lake,Karnataka,1,1,1,1
+IND_087.jpg,Cooum River,Chennai,1,1,1,1
+IND_088.jpg,Stepwell,Rajasthan,1,1,1,1
+IND_089.jpg,Loktak Lake,Imphal,0,0,0,0
+IND_090.jpg,Nainital Lake,Nainital,1,0,0,0
+IND_091.jpg,Bellandur Lake,Bengaluru,1,0,0,0
+IND_092.jpg,Dal Lake,Srinagar,0,0,0,0
+IND_093.jpg,Temple Tank,Tamil Nadu,0,0,0,0
+IND_094.jpg,Brahmaputra River,Guwahati,1,1,1,1
+IND_095.jpg,Canal,Punjab,1,1,0,1
+IND_096.jpg,Drain,Delhi,1,1,1,1
+IND_097.jpg,Mula-Mutha River,Pune,2,1,1,1
+IND_098.jpg,Chilika Lake,Odisha,0,0,0,0
+IND_099.jpg,Mula-Mutha River,Pune,2,2,2,2
+IND_100.jpg,Pichola Lake,Udaipur,1,1,0,1
+IND_101.jpg,Chilika Lake,Odisha,1,1,1,1
+IND_102.jpg,Ganga River,Varanasi,0,0,0,0
+IND_103.jpg,Wular Lake,Srinagar,0,0,0,0
+IND_104.jpg,Adyar River,Chennai,1,1,1,1
+IND_105.jpg,Fateh Sagar,Udaipur,1,1,1,1
+IND_106.jpg,Upper Lake,Bhopal,0,0,0,0
+IND_107.jpg,Vrishabhavathi River,Bengaluru,1,1,1,1
+IND_108.jpg,Mithi River,Mumbai,1,1,0,1
+IND_109.jpg,Upper Lake,Bhopal,0,0,0,0
+IND_110.jpg,Nainital Lake,Nainital,1,0,0,0
+IND_111.jpg,Bhojtal,Bhopal,0,0,0,0
+IND_112.jpg,Mula-Mutha River,Pune,1,1,1,1
+IND_113.jpg,Bhimtal,Uttarakhand,2,2,1,2
+IND_114.jpg,Hooghly River,Kolkata,2,2,2,2
+IND_115.jpg,Yamuna River,Delhi,0,1,1,1
+IND_116.jpg,Brahmaputra River,Guwahati,0,0,0,0
+IND_117.jpg,Pangong Lake,Ladakh,2,2,1,2
+IND_118.jpg,Musi River,Hyderabad,2,2,2,2
+IND_119.jpg,Nainital Lake,Nainital,1,1,0,1
+IND_120.jpg,Kaveri River,Srirangapatna,1,1,1,1
+IND_121.jpg,Musi River,Hyderabad,0,0,0,0
+IND_122.jpg,Wular Lake,Srinagar,1,1,2,1
+IND_123.jpg,Bhojtal,Bhopal,1,1,1,1
+IND_124.jpg,Canal,Punjab,2,2,2,2
+IND_125.jpg,Yamuna River,Delhi,2,2,2,2
+IND_126.jpg,Chilika Lake,Odisha,0,1,1,1
+IND_127.jpg,Hussain Sagar,Hyderabad,0,0,0,0
+IND_128.jpg,Loktak Lake,Imphal,1,1,1,1
+IND_129.jpg,Temple Tank,Tamil Nadu,1,1,1,1
+IND_130.jpg,Unknown River,Maharashtra,0,0,0,0
+IND_131.jpg,Hussain Sagar,Hyderabad,2,2,2,2
+IND_132.jpg,Canal,Punjab,1,0,0,0
+IND_133.jpg,Ropar Wetland,Punjab,1,2,2,2
+IND_134.jpg,Loktak Lake,Imphal,1,1,1,1
+IND_135.jpg,Vrishabhavathi River,Bengaluru,0,0,1,0
+IND_136.jpg,Temple Tank,Tamil Nadu,1,1,1,1
+IND_137.jpg,Tso Moriri,Ladakh,1,1,1,1
+IND_138.jpg,Musi River,Hyderabad,2,2,2,2
+IND_139.jpg,Pangong Lake,Ladakh,1,2,2,2
+IND_140.jpg,Tso Moriri,Ladakh,2,2,2,2
+IND_141.jpg,Bellandur Lake,Bengaluru,1,1,1,1
+IND_142.jpg,Unknown Lake,Karnataka,1,1,1,1
+IND_143.jpg,Fateh Sagar,Udaipur,1,1,1,1
+IND_144.jpg,Gomti River,Lucknow,1,1,1,1
+IND_145.jpg,Hooghly River,Kolkata,2,2,2,2
+IND_146.jpg,Pichola Lake,Udaipur,0,0,0,0
+IND_147.jpg,Sambhar Lake,Rajasthan,1,1,1,1
+IND_148.jpg,Brahmaputra River,Guwahati,1,1,1,1
+IND_149.jpg,Musi River,Hyderabad,2,2,2,2
+IND_150.jpg,Hussain Sagar,Hyderabad,0,0,0,0
+IND_151.jpg,Dal Lake,Srinagar,1,1,0,1
+IND_152.jpg,Pangong Lake,Ladakh,1,1,1,1
+IND_153.jpg,Bellandur Lake,Bengaluru,2,2,1,2
+IND_154.jpg,Upper Lake,Bhopal,0,0,1,0
+IND_155.jpg,Ganga River,Varanasi,1,0,0,0
+IND_156.jpg,Pushkar Lake,Ajmer,1,1,1,1
+IND_157.jpg,Pushkar Lake,Ajmer,1,2,2,2
+IND_158.jpg,Fateh Sagar,Udaipur,0,0,0,0
+IND_159.jpg,Temple Tank,Tamil Nadu,1,2,2,2
+IND_160.jpg,Hooghly River,Kolkata,1,1,2,1
+IND_161.jpg,Fateh Sagar,Udaipur,0,0,0,0
+IND_162.jpg,Brahmaputra River,Guwahati,2,2,2,2
+IND_163.jpg,Stepwell,Rajasthan,1,1,1,1
+IND_164.jpg,Fateh Sagar,Udaipur,0,0,0,0
+IND_165.jpg,Wular Lake,Srinagar,2,2,2,2
+IND_166.jpg,Canal,Punjab,0,0,0,0
+IND_167.jpg,Pangong Lake,Ladakh,1,1,0,1
+IND_168.jpg,Bhimtal,Uttarakhand,1,1,1,1
+IND_169.jpg,Bhimtal,Uttarakhand,0,0,1,0
+IND_170.jpg,Unknown Lake,Karnataka,2,2,2,2
+IND_171.jpg,Unknown River,Maharashtra,1,1,1,1
+IND_172.jpg,Bhojtal,Bhopal,0,0,0,0
+IND_173.jpg,Pangong Lake,Ladakh,2,2,2,2
+IND_174.jpg,Canal,Punjab,0,0,0,0
+IND_175.jpg,Village Pond,Tamil Nadu,0,0,0,0
+IND_176.jpg,Yamuna River,Delhi,1,1,1,1
+IND_177.jpg,Tso Moriri,Ladakh,0,0,1,0
+IND_178.jpg,Adyar River,Chennai,2,1,1,1
+IND_179.jpg,Tso Moriri,Ladakh,2,2,2,2
+IND_180.jpg,Yamuna River,Delhi,0,0,0,0
+IND_181.jpg,Pushkar Lake,Ajmer,0,0,0,0
+IND_182.jpg,Loktak Lake,Imphal,0,0,0,0
+IND_183.jpg,Loktak Lake,Imphal,1,1,2,1
+IND_184.jpg,Bhimtal,Uttarakhand,0,0,0,0
+IND_185.jpg,Yamuna River,Delhi,0,0,0,0
+IND_186.jpg,Bhojtal,Bhopal,0,0,0,0
+IND_187.jpg,Hussain Sagar,Hyderabad,0,0,0,0
+IND_188.jpg,Musi River,Hyderabad,2,2,2,2
+IND_189.jpg,Brahmaputra River,Guwahati,0,0,0,0
+IND_190.jpg,Vrishabhavathi River,Bengaluru,1,1,1,1
+IND_191.jpg,Chilika Lake,Odisha,2,2,2,2
+IND_192.jpg,Backwaters,Kerala,0,0,0,0
+IND_193.jpg,Hooghly River,Kolkata,2,1,1,1
+IND_194.jpg,Unknown Lake,Karnataka,0,0,0,0
+IND_195.jpg,Nainital Lake,Nainital,2,2,2,2
+IND_196.jpg,Pangong Lake,Ladakh,1,1,0,1
+IND_197.jpg,Unknown Lake,Karnataka,2,2,2,2
+IND_198.jpg,Brahmaputra River,Guwahati,0,0,0,0
+IND_199.jpg,Unknown River,Maharashtra,2,2,2,2
+IND_200.jpg,Canal,Punjab,0,0,0,0

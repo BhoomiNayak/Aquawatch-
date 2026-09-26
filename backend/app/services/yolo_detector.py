@@ -59,16 +59,14 @@ def detect_water_quality_local(image_bytes: bytes) -> dict:
         return _empty_result("YOLO model not available")
 
     try:
-        # Write to temp file (YOLO needs file path)
-        with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as f:
-            f.write(image_bytes)
-            temp_path = f.name
+        # Decode image in-memory (no temp file — faster)
+        import cv2
+        nparr = np.frombuffer(image_bytes, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        if img is None:
+            return _empty_result("Could not decode image")
 
-        try:
-            results = model(temp_path, verbose=False)
-        finally:
-            os.unlink(temp_path)
-
+        results = model(img, verbose=False)
         r = results[0]
 
         if r.boxes is None or len(r.boxes) == 0:

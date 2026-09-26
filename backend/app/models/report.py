@@ -47,6 +47,24 @@ class Report(Base):
     composite_score: Mapped[float] = mapped_column(Float, nullable=False)
     risk_level: Mapped[str] = mapped_column(String(20), nullable=False)
 
+    # Satellite corroboration (filled asynchronously by a background task).
+    # status: pending -> processing -> done | unavailable | error
+    satellite_status: Mapped[str] = mapped_column(String(20), default="pending")
+    satellite_ndci: Mapped[float | None] = mapped_column(Float, nullable=True)
+    satellite_exceeds_clean_baseline: Mapped[bool | None] = mapped_column(
+        Boolean, nullable=True
+    )
+    satellite_spatial_confidence: Mapped[str | None] = mapped_column(
+        String(10), nullable=True
+    )
+    satellite_corroboration: Mapped[str | None] = mapped_column(
+        String(20), nullable=True
+    )
+    satellite_mode: Mapped[str | None] = mapped_column(String(20), nullable=True)
+    satellite_checked_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
+
     # Timestamp
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),

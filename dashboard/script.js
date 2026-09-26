@@ -3,7 +3,7 @@
  * Leaflet map + side panel for water body health monitoring.
  */
 
-const API_BASE = 'http://localhost:8001/api/v1';
+const API_BASE = 'http://localhost:8002/api/v1';
 const MAP_CENTER = [12.97, 77.59]; // Bengaluru
 const MAP_ZOOM = 12;
 const REFRESH_INTERVAL = 30000;
@@ -182,9 +182,39 @@ function renderReports(reports) {
         var li = document.createElement('li');
         li.innerHTML =
             '<span class="report-type">' + type + '</span>' +
-            '<br><span class="report-meta">' + name + ' &middot; ' + timeAgo + ' &middot; Score: ' + r.composite_score.toFixed(1) + '</span>';
+            '<br><span class="report-meta">' + name + ' &middot; ' + timeAgo + ' &middot; Score: ' + r.composite_score.toFixed(1) + '</span>' +
+            satelliteBadge(r.satellite_verdict);
         list.appendChild(li);
     });
+}
+
+// Render a compact satellite corroboration badge for a report row.
+function satelliteBadge(v) {
+    var base = 'display:inline-block;margin-top:4px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;';
+    if (!v || v.status === 'processing' || v.status === 'pending') {
+        return '<br><span style="' + base + 'background:#eceff1;color:#607d8b">\uD83D\uDEF0 Processing satellite data\u2026</span>';
+    }
+    // Unavailable: not done, low spatial confidence, or no open water
+    if (v.status !== 'done' || v.spatial_confidence === 'low') {
+        return '<br><span style="' + base + 'background:#f0f0f0;color:#888" ' +
+            'title="Sub-pixel target / no open water">\uD83D\uDEF0 Satellite unavailable</span>';
+    }
+    var exceeds = v.exceeds_clean_baseline === true;
+    var label, color, bg;
+    if (exceeds) {
+        if (v.corroboration === 'elevated') { label = 'Elevated'; color = '#dc3545'; bg = '#fdecee'; }
+        else { label = 'Watch'; color = '#b8860b'; bg = '#fdf6e3'; }
+    } else {
+        label = 'Nominal'; color = '#28a745'; bg = '#eaf7ee';
+    }
+    var mode = v.mode === 'cached_lake' ? 'Tracked Lake' : 'Point Buffer';
+    var conf = v.spatial_confidence
+        ? v.spatial_confidence.charAt(0).toUpperCase() + v.spatial_confidence.slice(1)
+        : '-';
+    var ndci = (typeof v.ndci === 'number') ? v.ndci.toFixed(3) : '-';
+    return '<br><span style="' + base + 'background:' + bg + ';color:' + color + '" ' +
+        'title="NDCI ' + ndci + ' \u00b7 confidence ' + conf + ' \u00b7 ' + mode + '">' +
+        '\uD83D\uDEF0 Satellite: ' + label + ' (NDCI ' + ndci + ')</span>';
 }
 
 function closePanel() {

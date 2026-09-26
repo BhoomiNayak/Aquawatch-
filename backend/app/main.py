@@ -61,11 +61,37 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 
+def _ensure_satellite_columns():
+    """Idempotently add the satellite_* columns to an existing reports table.
+
+    Base.metadata.create_all() creates missing tables but never ALTERs existing
+    ones, so a DB created before the satellite feature would lack these columns.
+    Postgres supports ADD COLUMN IF NOT EXISTS, making this safe to run always.
+    """
+    from sqlalchemy import text
+    stmts = [
+        "ALTER TABLE reports ADD COLUMN IF NOT EXISTS satellite_status VARCHAR(20) DEFAULT 'pending'",
+        "ALTER TABLE reports ADD COLUMN IF NOT EXISTS satellite_ndci DOUBLE PRECISION",
+        "ALTER TABLE reports ADD COLUMN IF NOT EXISTS satellite_exceeds_clean_baseline BOOLEAN",
+        "ALTER TABLE reports ADD COLUMN IF NOT EXISTS satellite_spatial_confidence VARCHAR(10)",
+        "ALTER TABLE reports ADD COLUMN IF NOT EXISTS satellite_corroboration VARCHAR(20)",
+        "ALTER TABLE reports ADD COLUMN IF NOT EXISTS satellite_mode VARCHAR(20)",
+        "ALTER TABLE reports ADD COLUMN IF NOT EXISTS satellite_checked_at TIMESTAMPTZ",
+    ]
+    try:
+        with engine.begin() as conn:
+            for s in stmts:
+                conn.execute(text(s))
+    except Exception as exc:  # non-fatal: log and continue
+        logger.warning(f"satellite column migration skipped: {exc}")
+
+
 @app.on_event("startup")
 async def startup():
     """Create database tables on startup."""
     from app.models import water_body, report, risk_score  # noqa: F401
     Base.metadata.create_all(bind=engine)
+    _ensure_satellite_columns()
     logger.info(f"AquaWatch API v{settings.app_version} started")
     logger.info(f"Database: {settings.database_url.split('@')[-1] if '@' in settings.database_url else 'configured'}")
 

@@ -213,6 +213,16 @@ async def get_water_body_reports(
             "latitude": r.latitude,
             "longitude": r.longitude,
             "created_at": r.created_at.isoformat() if r.created_at else None,
+            "satellite_verdict": {
+                "status": r.satellite_status,
+                "ndci": r.satellite_ndci,
+                "exceeds_clean_baseline": r.satellite_exceeds_clean_baseline,
+                "spatial_confidence": r.satellite_spatial_confidence,
+                "corroboration": r.satellite_corroboration,
+                "mode": r.satellite_mode,
+                "checked_at": r.satellite_checked_at.isoformat()
+                if r.satellite_checked_at else None,
+            },
         })
 
     return {

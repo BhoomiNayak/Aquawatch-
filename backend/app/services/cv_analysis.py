@@ -322,16 +322,68 @@ def detect_oil_sheen(roi: np.ndarray) -> dict:
     high_variance_mask = (h_variance > variance_threshold).astype(np.uint8) * 255
 
     # Combine: must be both saturated AND have high hue variance
-    oil_mask = cv2.bitwise_and(candidate_mask, high_variance_mask)
+    rainbow_mask = cv2.bitwise_and(candidate_mask, high_variance_mask)
 
     # Clean up
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
-    oil_mask = cv2.morphologyEx(oil_mask, cv2.MORPH_OPEN, kernel)
+    rainbow_mask = cv2.morphologyEx(rainbow_mask, cv2.MORPH_OPEN, kernel)
+
+    # === Method 2: Thick oil slick detection (dark swirling patches) ===
+    # Thick crude oil appears as dark, low-saturation, smooth patches that
+    # contrast with surrounding water. Not rainbow — dark and opaque.
+    gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
+
+    # Dark regions (oil slick is darker than surrounding water)
+    mean_brightness = float(np.mean(gray))
+    # Threshold: pixels significantly darker than the average
+    dark_thresh = max(30, mean_brightness - 40)
+    dark_mask = (gray < dark_thresh).astype(np.uint8) * 255
+
+    # Oil slicks are smooth (low local texture) — filter out dark textured areas (vegetation, shadows)
+    laplacian = cv2.Laplacian(gray, cv2.CV_64F)
+    abs_lap = np.absolute(laplacian).astype(np.uint8)
+    smooth_mask = (abs_lap < 15).astype(np.uint8) * 255
+
+    # Low saturation (oil slick is not vividly colored)
+    low_sat_mask = cv2.inRange(s, 0, 90)
+
+    # Thick oil = dark AND smooth AND low saturation
+    slick_mask = cv2.bitwise_and(dark_mask, smooth_mask)
+    slick_mask = cv2.bitwise_and(slick_mask, low_sat_mask)
+
+    # Clean up — remove small noise, keep sizable patches
+    kernel2 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
+    slick_mask = cv2.morphologyEx(slick_mask, cv2.MORPH_OPEN, kernel2)
+    slick_mask = cv2.morphologyEx(slick_mask, cv2.MORPH_CLOSE, kernel2)
+
+    # Filter by contour size — oil slicks form large connected patches
+    contours, _ = cv2.findContours(slick_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    total_pixels = roi.shape[0] * roi.shape[1]
+    min_slick_area = total_pixels * 0.01  # At least 1% of image in one patch
+    valid_slick = np.zeros_like(slick_mask)
+    for c in contours:
+        if cv2.contourArea(c) >= min_slick_area:
+            cv2.drawContours(valid_slick, [c], -1, 255, -1)
+
+    # Combine both detection methods
+    oil_mask = cv2.bitwise_or(rainbow_mask, valid_slick)
 
     # Calculate coverage
-    total_pixels = roi.shape[0] * roi.shape[1]
     oil_pixels = np.count_nonzero(oil_mask)
     oil_coverage = (oil_pixels / total_pixels) * 100
+
+    rainbow_pixels = np.count_nonzero(rainbow_mask)
+    slick_pixels = np.count_nonzero(valid_slick)
+    rainbow_pct = (rainbow_pixels / total_pixels) * 100
+    slick_pct = (slick_pixels / total_pixels) * 100
+
+    # Determine oil type
+    if slick_pct > rainbow_pct and slick_pct > 2:
+        oil_type = "thick slick"
+    elif rainbow_pct > 1:
+        oil_type = "rainbow sheen"
+    else:
+        oil_type = "none"
 
     # Classify confidence
     if oil_coverage < 1.0:
@@ -345,6 +397,7 @@ def detect_oil_sheen(roi: np.ndarray) -> dict:
         "oil_sheen_detected": oil_coverage >= 1.0,
         "oil_coverage_percentage": round(oil_coverage, 1),
         "confidence": confidence,
+        "oil_type": oil_type,
     }
 
 

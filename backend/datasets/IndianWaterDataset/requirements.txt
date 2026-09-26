@@ -1,0 +1,5 @@
+icrawler
+Pillow
+pandas
+statsmodels
+opencv-python
