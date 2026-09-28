@@ -33,18 +33,19 @@ the web. An automated scan (`backend/scripts/extract_image_provenance.py`) found
 stripped). The authors therefore **do not hold and cannot grant** a license to
 these images, and their per-image provenance is **UNRESOLVED**.
 
-Consequently:
+Consequently, by the authors' decision:
 
-- The images are **not redistributed** under any license in this repository
-  (they are git-ignored).
-- The benchmark is released **by reference only**, ImageNet-style: the
-  `sha256` and `phash` in `docs/benchmark_provenance.csv` identify each image so
-  that a recovered `source_url` can be added per row and users can re-fetch the
-  originals under each source's own terms.
-- Redistribution of any image requires first establishing its source and
-  license and recording them in `benchmark_provenance.csv`. Until then, the
-  `evidence_status` column reads `NO_EMBEDDED_EVIDENCE` and the images must be
-  treated as all-rights-reserved third-party content.
+- The images are **not released or redistributed in any form** — not as files
+  and not by URL reference. They are git-ignored and used **solely for internal
+  evaluation** to produce the aggregate metrics reported in the paper.
+- What *is* shared is the authors' own work: the labels/annotations, the
+  provenance metadata (hashes), the code, the docs, and the derived figures
+  (Sections 1–2 above).
+- The `sha256`/`phash` in `docs/benchmark_provenance.csv` are retained for the
+  authors' internal integrity and de-duplication checks only.
+- Because the images are not released, external reproducibility is limited to
+  the reported metrics and the labelling protocol (stated as a limitation in
+  the paper).
 
 ## 4. Third-party training datasets
 
