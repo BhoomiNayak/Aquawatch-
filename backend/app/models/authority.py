@@ -21,7 +21,13 @@ class Authority(Base):
         String(36), primary_key=True, default=lambda: str(uuid.uuid4())
     )
     name: Mapped[str] = mapped_column(String(255), nullable=False)
-    email: Mapped[str] = mapped_column(String(255), nullable=False)
+    # May be empty when only a complaint portal is known; a human must set a
+    # verified address before live sending.
+    email: Mapped[str] = mapped_column(String(255), nullable=False, default="")
+    # Official website / complaint portal (verifiable, safe to display).
+    website: Mapped[str | None] = mapped_column(String(300), nullable=True)
+    # True only when a human has confirmed the email against the official source.
+    verified: Mapped[bool] = mapped_column(default=False)
     # Jurisdiction used for matching: a city/region string, matched against the
     # water body's city/state. Null = fallback/default authority.
     jurisdiction: Mapped[str | None] = mapped_column(String(150), nullable=True)

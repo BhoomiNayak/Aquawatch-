@@ -48,6 +48,7 @@ async def list_authorities(db: Session = Depends(get_db)):
         "total": len(rows),
         "authorities": [
             {"id": a.id, "name": a.name, "email": a.email,
+             "website": a.website, "verified": a.verified,
              "jurisdiction": a.jurisdiction, "is_default": a.is_default}
             for a in rows
         ],
