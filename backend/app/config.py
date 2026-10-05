@@ -28,6 +28,17 @@ class Settings(BaseSettings):
     roboflow_api_key: str = ""
     roboflow_model_id: str = "drone-water-quality-monitor/1"
 
+    # Authority alerting (original-vision feature)
+    alerts_enabled: bool = True          # create alert CANDIDATES for HIGH-risk reports
+    alerts_dry_run: bool = True          # True = compose/store only, never actually send
+    alerts_min_level: str = "high"       # minimum risk level that triggers a candidate
+    # SMTP (only used when alerts_dry_run = False and an operator confirms a send)
+    smtp_host: str = ""
+    smtp_port: int = 587
+    smtp_user: str = ""
+    smtp_password: str = ""
+    smtp_from: str = "aquawatch-alerts@example.org"
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

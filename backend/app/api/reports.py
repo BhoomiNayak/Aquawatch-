@@ -22,6 +22,7 @@ from app.services.water_body_matcher import find_nearest_water_body
 from app.services.roboflow_detector import detect_water_quality
 from app.services.yolo_detector import detect_water_quality_local
 from app.services.satellite import get_satellite_status_for_water_body
+from app.services.alerting import create_alert_candidate
 
 import logging
 
@@ -58,6 +59,19 @@ def _enrich_report_with_satellite(report_id: str, water_body_id: str):
         log.info(f"satellite enrichment {report_id}: "
                  f"status={report.satellite_status} mode={report.satellite_mode} "
                  f"corroboration={report.satellite_corroboration}")
+
+        # Authority alerting (original-vision feature): for HIGH-risk reports,
+        # create a human-review alert candidate once the satellite verdict is
+        # known. Isolated so it can never break satellite enrichment, and it
+        # NEVER auto-sends — an operator confirms via POST /alerts/{id}/send.
+        try:
+            alert = create_alert_candidate(db, report, water_body)
+            if alert is not None:
+                db.commit()
+                log.info(f"alert candidate {alert.id} queued (status=pending_review)")
+        except Exception as aexc:  # noqa: BLE001
+            db.rollback()
+            log.warning(f"alert-candidate creation failed for {report_id}: {aexc}")
     except Exception as exc:  # noqa: BLE001
         db.rollback()
         log.warning(f"satellite enrichment failed for {report_id}: {exc}")

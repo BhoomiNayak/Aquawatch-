@@ -8,6 +8,7 @@ from app.config import get_settings
 from app.database import engine, Base
 from app.api.reports import router as reports_router
 from app.api.water_bodies import router as water_bodies_router
+from app.api.alerts import router as alerts_router
 
 settings = get_settings()
 
@@ -39,6 +40,7 @@ app.add_middleware(
 # Include routers
 app.include_router(reports_router, prefix="/api/v1", tags=["Reports"])
 app.include_router(water_bodies_router, prefix="/api/v1", tags=["Water Bodies"])
+app.include_router(alerts_router, prefix="/api/v1", tags=["Alerts"])
 
 
 # Request logging middleware
@@ -89,7 +91,9 @@ def _ensure_satellite_columns():
 @app.on_event("startup")
 async def startup():
     """Create database tables on startup."""
-    from app.models import water_body, report, risk_score  # noqa: F401
+    from app.models import (  # noqa: F401
+        water_body, report, risk_score, authority, alert,
+    )
     Base.metadata.create_all(bind=engine)
     _ensure_satellite_columns()
     logger.info(f"AquaWatch API v{settings.app_version} started")
